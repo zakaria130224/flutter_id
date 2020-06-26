@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -9,6 +10,14 @@ void main() {
 
 Color gradientStart = Colors.grey[900]; //Change start gradient color here
 Color gradientEnd = Colors.grey[600]; //Change end gradient color here
+final Uri _emailLaunchUri = Uri(
+    scheme: 'mailto',
+    path: 'provincialkid@gmail.com',
+    queryParameters: {
+      'subject': 'Example Subject & Symbols are allowed!'
+    }
+);
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -87,29 +96,40 @@ class Home extends StatelessWidget {
               SizedBox(height: 20,),
               Row(
                 children: <Widget>[
-                  Icon(
-                    Icons.phone,
-                    color: Colors.green,
-                  ),
-                  SizedBox(width: 20,),
-                  Text(
-                    '+8801833182777',
-                    style: TextStyle(
-                      color: Colors.amber,
-                      letterSpacing: 2.0,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
+                  IconButton(
+                    onPressed: () => launch("tel:+8801833182777"),
+                    icon: Icon(
+                      Icons.phone,
+                      color: Colors.green,
                     ),
                   ),
+                  SizedBox(width: 20,),
+                  GestureDetector(
+                    onTap: ()=> launch("tel:+8801833182777"),
+                    child:  Text(
+                      '+8801833182777',
+                      style: TextStyle(
+                        color: Colors.amber,
+                        letterSpacing: 2.0,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 15,
+                      ),
+
+                    ),
+                  ),
+
                 ],
               ),
               //Email
               //SizedBox(height: 20,),
               Row(
                 children: <Widget>[
-                  Icon(
-                    Icons.email,
-                    color: Colors.yellow,
+                  IconButton(
+                    onPressed: () => launch(_emailLaunchUri.toString()),
+                    icon: Icon(
+                      Icons.email,
+                      color: Colors.yellow,
+                    ),
                   ),
                   SizedBox(width: 20,),
                   Text(
