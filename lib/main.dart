@@ -6,6 +6,7 @@ void main() {
     home: Home(),
   ));
 }
+
 Color gradientStart = Colors.grey[900]; //Change start gradient color here
 Color gradientEnd = Colors.grey[600]; //Change end gradient color here
 class Home extends StatelessWidget {
