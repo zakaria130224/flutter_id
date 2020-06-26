@@ -96,25 +96,27 @@ class Home extends StatelessWidget {
               SizedBox(height: 20,),
               Row(
                 children: <Widget>[
-                  IconButton(
-                    onPressed: () => launch("tel:+8801833182777"),
-                    icon: Icon(
-                      Icons.phone,
-                      color: Colors.green,
-                    ),
-                  ),
-                  SizedBox(width: 20,),
+
                   GestureDetector(
                     onTap: ()=> launch("tel:+8801833182777"),
-                    child:  Text(
-                      '+8801833182777',
-                      style: TextStyle(
-                        color: Colors.amber,
-                        letterSpacing: 2.0,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 15,
-                      ),
+                    child:  Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.phone,
+                          color: Colors.green,
+                        ),
+                        SizedBox(width: 20,),
+                        Text(
+                          '+8801833182777',
+                          style: TextStyle(
+                            color: Colors.amber,
+                            letterSpacing: 2.0,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 15,
+                          ),
 
+                        ),
+                      ],
                     ),
                   ),
 
@@ -124,23 +126,28 @@ class Home extends StatelessWidget {
               //SizedBox(height: 20,),
               Row(
                 children: <Widget>[
-                  IconButton(
-                    onPressed: () => launch(_emailLaunchUri.toString()),
-                    icon: Icon(
-                      Icons.email,
-                      color: Colors.yellow,
+                  GestureDetector(
+                    onTap: ()=>launch(_emailLaunchUri.toString()),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.email,
+                          color: Colors.yellow,
+                        ),
+                        SizedBox(width: 20,),
+                        Text(
+                          'zakaria.ahammed@robi.com.bd',
+                          style: TextStyle(
+                            color: Colors.amber,
+                            letterSpacing: 2.0,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(width: 20,),
-                  Text(
-                    'zakaria.ahammed@robi.com.bd',
-                    style: TextStyle(
-                      color: Colors.amber,
-                      letterSpacing: 2.0,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
-                    ),
-                  ),
+                  )
+
                 ],
               ),
               //QR-Code
