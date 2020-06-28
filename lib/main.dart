@@ -18,7 +18,13 @@ final Uri _emailLaunchUri = Uri(
     }
 );
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int counter=1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +98,25 @@ class Home extends StatelessWidget {
                   fontSize: 15,
                 ),
               ),
+              //Level
+              SizedBox(height: 20,),
+              Text(
+                'Level',
+                style: TextStyle(
+                  color: Colors.grey,
+                  letterSpacing: 2.0,
+                ),
+              ),
+              SizedBox(height: 10,),
+              Text(
+                '$counter',
+                style: TextStyle(
+                  color: Colors.amber,
+                  letterSpacing: 2.0,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 15,
+                ),
+              ),
               //Phone
               SizedBox(height: 20,),
               Row(
@@ -157,8 +182,8 @@ class Home extends StatelessWidget {
                   data: "{\"Name\":\"Zakaria Ahammed\",\"Address\":\"H#333, Khajura, Sadar, Jashore\",\"Phone\":\"+8801833182777\",\"Email\":\"zakaria.ahammed@robi.com.bd\"}",
                   version: QrVersions.auto,
                   size: 200.0,
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
                 ),
               ),
 
@@ -166,7 +191,16 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            counter+=1;
+          });
+        },
+        child: Icon(
+          Icons.add,
+        ),
+      ),
     );
   }
 }
